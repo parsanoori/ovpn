@@ -5,15 +5,17 @@
 # make the directory for the ovpn files
 mkdir -p ~/.local/ovpn
 
+ovpn_redirect_link = "https://raw.githubusercontent.com/parsanoori/ovpn/main/ovpn_redirect.sh"
+
 # download the script to the folder
 # if curl is present 
 if command -v curl &> /dev/null
 then
-    curl -o ~/.local/ovpn/ovpn_redirect.sh https://raw.githubusercontent.com/ahmedelgabri/ovpn/main/ovpn_redirect.sh
+    curl -o ~/.local/ovpn/ovpn_redirect.sh $ovpn_redirect_link
 # if wget is present
 elif command -v wget &> /dev/null
 then
-    wget -O ~/.local/ovpn/ovpn_redirect.sh https://raw.githubusercontent.com/ahmedelgabri/ovpn/main/ovpn_redirect.sh
+    wget -O ~/.local/ovpn/ovpn_redirect.sh $ovpn_redirect_link
 # if neither is present
 else
     echo "Please install curl or wget"
