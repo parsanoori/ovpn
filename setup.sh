@@ -6,7 +6,21 @@
 mkdir -p ~/.local/ovpn
 
 # download the script to the folder
-wget -P ~/.local/ovpn https://raw.githubusercontent.com/parsanoori/ovpn/main/ovpn_redirect.sh
+# if curl is present 
+if command -v curl &> /dev/null
+then
+    curl -o ~/.local/ovpn/ovpn_redirect.sh https://raw.githubusercontent.com/ahmedelgabri/ovpn/main/ovpn_redirect.sh
+# if wget is present
+elif command -v wget &> /dev/null
+then
+    wget -O ~/.local/ovpn/ovpn_redirect.sh https://raw.githubusercontent.com/ahmedelgabri/ovpn/main/ovpn_redirect.sh
+# if neither is present
+else
+    echo "Please install curl or wget"
+    exit 1
+fi
+
+
 
 # make the script executable
 chmod +x ~/.local/ovpn/ovpn_redirect.sh
@@ -51,13 +65,10 @@ echo "            --down ~/.local/ovpn/ovpn_redirect.sh \\"                     
 echo "            --route-noexec --script-security 3"                           >> ~/.zshrc
 echo "    fi"                                                                   >> ~/.zshrc
 echo "}"                                                                        >> ~/.zshrc
-
-# source the .zshrc file
-source ~/.zshrc
-
 # ask the user to download the config files
 echo "Download the ProtonVPN's config files and extract them any where you want"
 
 # guide the user
+echo "Run source ~/.zshrc"
 echo "Use the ovpn command followed by the config file name to connect to the VPN"
 
