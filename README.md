@@ -4,9 +4,11 @@ This is a helper command for MacOS to connect to any OpenVPN config using a sock
 
 ## Installation
 
-Run the following command:
+Run the following commands:
 ```
-curl -s https://raw.githubusercontent.com/parsanoori/ovpn/main/setup.sh | bash
+curl -O https://raw.githubusercontent.com/parsanoori/ovpn/main/setup.sh
+chmod +x setup.sh
+./setup.sh
 ```
 
 
