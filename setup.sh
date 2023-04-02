@@ -5,7 +5,7 @@
 # make the directory for the ovpn files
 mkdir -p ~/.local/ovpn
 
-ovpn_redirect_link = "https://raw.githubusercontent.com/parsanoori/ovpn/main/ovpn_redirect.sh"
+ovpn_redirect_link="https://raw.githubusercontent.com/parsanoori/ovpn/main/ovpn_redirect.sh"
 
 # download the script to the folder
 # if curl is present 
